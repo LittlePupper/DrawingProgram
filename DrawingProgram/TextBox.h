@@ -1,6 +1,6 @@
-/// \file	TextBox.h.
+/// \file	TextBox.h
 /// \author	Nora White
-/// \date	2017-09-28
+/// \date	2017-10-19
 /// \brief	Declares the text box class
 
 #pragma once

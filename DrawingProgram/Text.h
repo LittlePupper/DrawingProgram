@@ -1,6 +1,6 @@
-/// \file	Text.h.
+/// \file	Text.h
 /// \author	Nora White
-/// \date	2017-09-28
+/// \date	2017-10-19
 /// \brief	Declares the text class
 
 #pragma once
@@ -49,6 +49,7 @@ public:
 	/// \fn		virtual void Text::read(istream &is);
 	/// \brief	Reads the given input stream
 	/// \param	&is		istream, reference to the input stream to read
+	/// \throws	input_format_error
 
 	virtual void read(istream &is);
 };

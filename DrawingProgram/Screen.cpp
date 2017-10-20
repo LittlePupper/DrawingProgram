@@ -1,7 +1,8 @@
 // \author	Nora White
-// \date	2017-09-28
+// \date	2017-10-19
 
 #include "stdafx.h"
+#include "Exception.h"
 #include "Screen.h"
 #include <stdlib.h>
 
@@ -27,6 +28,7 @@ Screen::Screen(int rows, int columns)
 
 Screen::~Screen()
 {
+		screenVector.swap(vector <vector<char>>());
 }
 
 // \fn		void Screen::clear();
@@ -45,10 +47,14 @@ void Screen::clear()
 // \param	row	int, the row of which the char is being drawn to
 // \param	col	int, the column of which the char is being drawn to
 // \param	ch char, the char that is being drawn
+// \throws	invalid_coordinates_error
 
 void Screen::set(int row, int column, char letter)
 {
-	screenVector[row][column] = letter;
+	if (row < rows && column < columns)
+		screenVector[row][column] = letter;
+	else
+		throw invalid_coordinates_error();
 }
 
 // \fn		friend std::ostream Screen::&operator<<(std::ostream &output, const Screen &screen);

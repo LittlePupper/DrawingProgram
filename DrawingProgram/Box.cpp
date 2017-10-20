@@ -1,8 +1,9 @@
 // \author	Nora White
-// \date	2017-09-28
+// \date	2017-10-19
 
 #include "stdafx.h"
 #include "Box.h"
+#include "Exception.h"
 
 // \fn	Box::Box(int upRow = 5, int upCol= 5, int botRow = 20, int botCol = 15, char letter = '!');
 // \brief	Constructor for Box which takes in 5 parameters
@@ -48,11 +49,19 @@ void Box::draw(Screen &screen)
 // \fn		virtual void Box::read(istream &is);
 // \brief	Reads the given input stream
 // \param	&is		istream, a reference to the input stream to read
+// \throws	input_format_error
 
 void Box::read(istream &is)
 {
 	is >> upRow >> upCol >> botRow >> botCol >> letter;
-	constructLines();
+	if (is.fail() || (upRow > botRow) || (upCol > botCol) || (upRow == botRow) || (upCol == botCol))
+	{
+		throw input_format_error();
+	}
+	else
+	{
+		constructLines();
+	}
 }
 
 // \fn	void Box::constructLines();
@@ -60,8 +69,14 @@ void Box::read(istream &is)
 
 void Box::constructLines()
 {
-	topLine = (new Line(upRow, upCol, upRow, botCol, letter));
-	bottomLine = (new Line(botRow, upCol, botRow, botCol, letter));
-	leftLine = (new Line(upRow, upCol, botRow, upCol, letter));
-	rightLine = (new Line(upRow, botCol, botRow, botCol, letter));
+	try {
+		topLine = (new Line(upRow, upCol, upRow, botCol, letter));
+		bottomLine = (new Line(botRow, upCol, botRow, botCol, letter));
+		leftLine = (new Line(upRow, upCol, botRow, upCol, letter));
+		rightLine = (new Line(upRow, botCol, botRow, botCol, letter));
+	}
+	catch (invalid_line_error & e)
+	{
+		cout << endl << e.what() << endl;
+	}
 }

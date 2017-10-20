@@ -1,6 +1,6 @@
-/// \file	Screen.h.
+/// \file	Screen.h
 /// \author	Nora White
-/// \date	2017-09-28
+/// \date	2017-10-19
 /// \brief	Declares the screen class
 
 #pragma once
@@ -53,6 +53,7 @@ public:
 	/// \param	row	int, the row of which the char is being drawn to
 	/// \param	col	int, the column of which the char is being drawn to
 	/// \param	ch 	char, the char that is being drawn
+	/// \throws	invalid_coordinates_error
 
 	void set(int row, int col, char ch);
 

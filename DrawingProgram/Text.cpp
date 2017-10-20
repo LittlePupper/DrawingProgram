@@ -1,8 +1,9 @@
 // \author	Nora White
-// \date	2017-09-28
+// \date	2017-10-19
 
 #include "stdafx.h"
 #include "Text.h"
+#include "Exception.h"
 
 // \fn		Text::Text(int row = 20, int col = 40, string phrase = "HelloWorld");
 // \brief	Constructor for Text which takes in 3 parameters
@@ -37,8 +38,13 @@ void Text::draw(Screen &screen)
 // \fn		virtual void Text::read(istream &is);
 // \brief	Reads the given input stream
 // \param	&is		istream, reference to the input stream to read
+// \throws	input_format_error
 
 void Text::read(istream &is)
 {
 	is >> row >> col >> phrase;
+	if (is.fail())
+	{
+		throw input_format_error();
+	}
 }

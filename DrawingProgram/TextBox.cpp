@@ -1,8 +1,9 @@
 // \author	Nora White
-// \date	2017-09-28
+// \date	2017-10-19
 
 #include "stdafx.h"
 #include "TextBox.h"
+#include "Exception.h"
 
 // \fn		TextBox::TextBox(int row = 20, int col = 40, char letter = '!', string phrase = "HelloWorld");
 // \brief	Constructor for TextBox which takes in 4 parameters

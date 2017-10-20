@@ -1,6 +1,6 @@
-/// \file	Box.h.
+/// \file	Box.h
 /// \author	Nora White
-/// \date	2017-09-28
+/// \date	2017-10-19
 /// \brief	Declares the box class
 
 #pragma once
@@ -63,6 +63,7 @@ public:
 	/// \fn		virtual void Box::read(istream &is);
 	/// \brief	Reads the given input stream
 	/// \param	&is		istream, a reference to the input stream to read
+	/// \throws	input_format_error
 
 	virtual void read(istream &is);
 

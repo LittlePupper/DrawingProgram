@@ -1,6 +1,6 @@
-/// \file	Line.h.
+/// \file	Line.h
 /// \author	Nora White
-/// \date	2017-09-28
+/// \date	2017-10-19
 /// \brief	Declares the line class
 
 #pragma once
@@ -26,6 +26,7 @@ public:
 	/// \param	endRow  	(Optional) int, the end row of the line
 	/// \param	endCol  	(Optional) int, the end column of the line
 	/// \param	letter  	(Optional) char, the letter to use to make the line
+	/// \throws	invalid_line_error
 
 	Line(int startRow = 5, int startCol = 5, int endRow = 5, int endCol = 10, char letter = '*');
 
@@ -48,6 +49,7 @@ public:
 	/// \fn		virtual void Line::draw(Screen &screen);
 	/// \brief	Draws itself to the given screen
 	/// \param	&screen	Screen, a reference to screen
+	/// \throws	invalid_line_error
 
 	virtual void draw(Screen &screen);
 
