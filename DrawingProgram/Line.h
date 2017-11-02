@@ -4,7 +4,6 @@
 /// \brief	Declares the line class
 
 #pragma once
-#include "cassert"
 #include "ScreenElement.h"
 
 /// \namespace	std
